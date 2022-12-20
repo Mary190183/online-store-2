@@ -177,6 +177,24 @@
         "https://i.dummyjson.com/data/products/10/3.jpg",
         "https://i.dummyjson.com/data/products/10/thumbnail.jpeg"
       ]
+    },
+    {
+      "id": 11,
+      "title": "iPhone 14",
+      "description": "Iphone 14 512 GB White",
+      "price": 1599,
+      "discountPercentage": 2.18,
+      "rating": 4.89,
+      "stock": 32,
+      "brand": "Apple",
+      "category": "smartphones",
+      "thumbnail": "img/11/thumbnail.jpeg",
+      "images": [
+        "./img/11/1.jpg",
+        "img/11/2.jpg",
+        "img/11/3.jpg",
+        "img/11/thumbnail.jpeg"
+      ]
     }
   ],
   "total": 100,
