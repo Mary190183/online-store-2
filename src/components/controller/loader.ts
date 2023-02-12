@@ -1,28 +1,27 @@
-import { Product } from '../product/product';
+import { Game } from '../game/game';
 
 export class Loader implements JSONLoader {
-  private products: ProductData[];
+  private games: DataGame[];
 
-  constructor(data: ProductsJSON) {
-    if (!this.isProductsJSON(data)) {
-      throw Error('Invalid products data');
+  constructor(data: GamesJSON) {
+    if (!this.isGamesJSON(data)) {
+      throw Error('Invalid games data');
     }
 
-    this.products = data.products.map(
-      (product: Product) => new Product(product)
+    this.games = data.games.map(
+      (game: Game) => new Game(game)
     );
   }
-
   getProducts() {
-    return this.products;
+    return this.games;
   }
 
-  getProduct(productId: string): ProductData {
-    const id = Number(productId);
-    return this.products.filter((product) => product.id === id)[0];
+  getProduct(gameId: string): DataGame {
+    const id = Number(gameId);
+    return this.games.filter((game) => game.id === id)[0];
   }
 
-  private isProductsJSON(data: ProductsJSON | unknown): data is ProductsJSON {
-    return (data as ProductsJSON).products !== undefined;
+  private isGamesJSON(data: GamesJSON | unknown): data is GamesJSON {
+    return (data as GamesJSON).games !== undefined;
   }
 }

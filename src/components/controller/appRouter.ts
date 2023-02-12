@@ -14,13 +14,8 @@ export class AppRouter extends Router {
     window.history.pushState({}, '', this.root);
   }
 
-  routeToCart() {
-    const url = `${this.root}/cart`;
-    window.history.pushState({}, '', url);
-  }
-
-  routeToProduct(id: string) {
-    const url = `${this.root}/product/${id}`;
+  routeToGame(id: string) {
+    const url = `${this.root}/game/${id}`;
     window.history.pushState({}, '', url);
   }
 

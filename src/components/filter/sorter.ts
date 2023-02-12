@@ -12,10 +12,10 @@ export class Sorter {
     const input = createElemDOM('select', 'sorter_input');
     input.setAttribute('type', 'select');
     const sortOptions = [
-      this.addOption('price-ascending', 'Price ascending'),
-      this.addOption('price-descending', 'Price descending'),
-      this.addOption('rating-ascending', 'Rating ascending'),
-      this.addOption('rating-descending', 'Rating descending'),
+      this.addOption('basicComplexity-ascending', 'Сложность ascending'),
+      this.addOption('basicComplexity-descending', 'Сложность descending'),
+      this.addOption('rating-ascending', 'Рейтинг ascending'),
+      this.addOption('rating-descending', 'Рейтинг descending'),
     ];
 
     input.append(...sortOptions);
@@ -31,7 +31,7 @@ export class Sorter {
     return option;
   }
 
-  public sort(data: ProductData[]) {
+  public sort(data: DataGame[]) {
     const selector = this.element.querySelector('select') as HTMLSelectElement;
     const [prop, order] = selector.value.split('-') as sortOptions;
 
@@ -49,6 +49,6 @@ export class Sorter {
     const selector = this.element.querySelector('select');
     if (!(selector instanceof HTMLSelectElement)) return;
 
-    selector.value = value || 'price-ascending';
+    selector.value = value || 'basicComplexity-ascending';
   }
 }

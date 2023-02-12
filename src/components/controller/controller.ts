@@ -1,48 +1,35 @@
 import { NotFoundPage } from './../../pages/notFoundPage';
-import { ProductPage } from './../../pages/productPage';
-import { CartController } from './cartController';
-import { Cart } from './../cart/cart';
-import { CartPage } from './../../pages/cartPage';
+import { TrenagorsPage } from '../../pages/trenagorsPage';
+import { DescriptionController } from './descriptionController';
 import { Loader } from './loader';
-import productsData from '../../mock/products.json';
+import gamesData from '../../data/games.json';
 import { FilterPage } from '../../pages/filterPage';
 
 export class Controller {
   private loader: Loader;
-  private products: ProductData[];
-  private cart: Cart;
+  private games: DataGame[];
   private filterPage: FilterPage;
-  private cartPage: CartPage;
-  private cartController: CartController;
-  private productPage: ProductPage;
+  private descriptionController: DescriptionController;
+  private trenagorsPage: TrenagorsPage;
   private notFoundPage: NotFoundPage;
 
   constructor() {
-    this.loader = new Loader(productsData);
-    this.products = this.loader.getProducts();
-    this.cart = new Cart();
-    this.cartController = new CartController(this.cart, this.loader);
-    this.filterPage = new FilterPage(this.products, this.cartController);
-    this.productPage = new ProductPage(
-      this.cartController,
-
-      this.cart
-    );
-    this.cartPage = new CartPage(this.cartController);
+    this.loader = new Loader(gamesData);
+    this.games = this.loader.getProducts();
+    this.descriptionController = new DescriptionController(this.loader);
+    this.filterPage = new FilterPage(this.games, this.descriptionController);
+    this.trenagorsPage = new TrenagorsPage(this.descriptionController);
     this.notFoundPage = new NotFoundPage();
   }
 
   drawFilterPage() {
-    this.filterPage.data = this.products;
+    this.filterPage.data = this.games;
     this.filterPage.draw();
   }
 
-  drawCartPage() {
-    this.cartPage.draw();
-  }
-  drawProductPage(id: string) {
-    const product = this.loader.getProduct(id);
-    if (product) this.productPage.draw(product);
+  drawTrenagorsPage(id: string) {
+    const game = this.loader.getProduct(id);
+    if (game) this.trenagorsPage.draw(game);
     else this.notFoundPage.draw();
   }
   drawPageNotFound() {

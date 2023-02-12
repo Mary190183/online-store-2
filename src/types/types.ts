@@ -1,48 +1,48 @@
-type ProductData = {
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-  discountPercentage: number;
-  rating: number;
-  stock: number;
-  brand: string;
-  category: string;
-  thumbnail: string;
-  images: string[];
+type DataGame = {
+  "id": number,
+  "nameGameRu": string,
+  "nameGame": string,
+  "check1": string,
+  "check2": string,
+  "check3": string,
+  "discriptionp1": string,
+  "discriptionp2"?: string,
+  "discriptionp3"?: string,
+  "questionp1": string,
+  "questionp2"?: string,
+  "questionp3"?: string,
+  "questionp4"?: string,
+  "questionp5"?: string,
+  "questionp6"?: string,
+  "rulesp1": string,
+  "rulesp2"?: string,
+  "rulesp3"?: string,
+  "rulesp4"?: string,
+  "rulesp5"?: string,
+  "basicComplexity": number,
+  "category": string,
+  "rating": number,
+  "levels": number,
+  "image": string,
 };
 
-type ProductsJSON = {
-  products: ProductData[];
+type GamesJSON = {
+  games: DataGame[];
   total: number;
   skip: number;
   limit: number;
 };
 
 interface JSONLoader {
-  getProducts(): ProductData[];
+  getProducts(): DataGame[];
 }
 
 type filterOptions = {
   category: string[];
-  brand: string[];
-  minPrice: number;
-  maxPrice: number;
-  minStock: number;
-  maxStock: number;
-};
-type CartProduct = {
-  productData: ProductData;
-  count: number;
-};
-
-type Promo = {
-  name: string;
-  discount: number;
 };
 
 type sortOptions = [
-  prop: 'price' | 'rating',
+  prop: 'rating' | 'basicComplexity',
   order: 'ascending' | 'descending'
 ];
 

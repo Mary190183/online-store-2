@@ -6,7 +6,3 @@ export enum Elements {
   range = 'range',
 }
 
-export enum Colors {
-  sliderRange = '#244d4d',
-  sliderDefault = '#e3e3e3',
-}

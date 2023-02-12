@@ -33,17 +33,4 @@ export default class Router {
     return value;
   }
 
-  resetURL() {
-    const url = `${this.url.origin}`;
-    window.history.replaceState(null, '', url);
-    this.url.search = '';
-    this.params = new URLSearchParams(this.url.search);
-  }
-
-  copyURL() {
-    navigator.clipboard.writeText(window.location.href).then(
-      () => console.log('Copied!'),
-      () => console.log('Failed to copy')
-    );
-  }
 }
